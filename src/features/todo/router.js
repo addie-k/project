@@ -17,4 +17,8 @@ todoRouter.post('/update/:id',(req,res,next)=>{
     todoController.updateTodo(req,res,next)
 })
 
+todoRouter.post('/delete/:id',(req,res,next)=>{
+    todoController.deleteTodo(req,res,next)
+})
+
 export default todoRouter
