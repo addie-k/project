@@ -4,11 +4,10 @@ import express from "express"
 import connectDb from "./src/config/mongoose.js"
 import todoRouter from "./src/features/todo/router.js"
 import userRouter from "./src/features/user/router.js"
-import auth from "./src/middlewares/jwt.js"
 const app = express()
 app.use(express.json());
 
-app.use("/api/todo",auth,todoRouter)
+app.use("/api/todo",todoRouter)
 app.use("/api/user",userRouter)
 
 app.listen(process.env.PORT,()=>{

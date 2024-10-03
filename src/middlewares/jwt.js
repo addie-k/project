@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken'
 const auth = (req,res,next) => {
     const token = req.headers.authorization
     if (!token) {
-        console.log('token not found')
+        res.send('token expired! login again')
     }
     try {
         const payload = jwt.verify(token, process.env.JWT_SECRET)
@@ -10,6 +10,8 @@ const auth = (req,res,next) => {
         console.log("payload:", payload);
     } catch (error) {
         console.log("err jwt",error)
+        res.send('token expired! login again')
+
     }
     next()
 }

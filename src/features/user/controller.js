@@ -26,6 +26,7 @@ export default class UserController {
                     expiresIn
                         : '1d'
                 });
+                console.log(token)
                 res.send('logged in')
             }
         } else {
